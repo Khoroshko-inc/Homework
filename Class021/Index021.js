@@ -27,6 +27,6 @@
 //     e.preventDefault();
 //   }
 // }
-import"./Index021.css"
+import styles from "./Index021.css";
 elementList = document.querySelectorAll('letter');
 console.log(elementList);
