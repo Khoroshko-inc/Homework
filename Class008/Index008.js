@@ -1,4 +1,51 @@
-// Homework ////////создать класс todolist 
+// Homework ////////создать класс todolist
+class TodoList {
+  constructor() {
+    this.todo = [];
+  }
+
+  addToList(text, id) {
+    const newId = () => +String(performance.now()).replace('.', '') + Date.now();
+    const object = {
+      text: text,
+      date: new Date().toString(),
+      id: id,
+    };
+    this.todo.push(object);
+  }
+
+  removeFromList(id) {
+    const index = this.todo.findIndex((n) => n.id === id);
+    if (index !== -1) {
+      this.todo.splice(index, 1);
+    }
+  }
+
+  sort() {
+    this.todo.sort((a, b) => {
+      return a.date - b.date;
+    });
+  }
+
+  clear() {
+    this.todo.length = 0;
+  }
+}
+const todo = new TodoList();
+
+todo.addToList("text", 1);
+todo.addToList("text", 2);
+todo.addToList("text", 3);
+todo.addToList("text", 4);
+todo.addToList("text", 5);
+todo.addToList("text", 6);
+todo.removeFromList(5);
+todo.removeFromList(2);
+todo.sort();
+todo.clear(); // delete all todo
+console.log(todo);
+
+
 
 
 // class Todolist {
@@ -8,35 +55,11 @@
 
 // };
 
-
 // todo.addTolist({task: 'Do the job', date: Date.now()}); /*4ре метода */
 
 // todo.RemoveFromList({id:1});//удаляет  /*как генерировать id посмотреть в интерненте, главное чтобы не было повторяшек */
-// todo.sort(); // от большего к меньшему 
+// todo.sort(); // от большего к меньшему
 // todo.clear(); // очистить все todo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // function Animal(type, word) {
 //     this.type = type;
@@ -99,40 +122,3 @@
 // calculator.read();
 // log надо ввести calculator.sum();
 // calculator.mul();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
