@@ -1,32 +1,26 @@
+document.onkeydown = handle;
 
-// kinput.onkeydown = kinput.onkeyup = kinput.onkeypress = handle;
+function handle(e) {
+  const keyboard = document
+    .getElementById("keyboard")
+    .getElementsByTagName("li");
 
-// let lastTime = Date.now();
+  const pressedLetter = e.key.toUpperCase();
+  console.log([pressedLetter]);
+  let foundElement;
 
-// function handle(e) {
-//   if (form.elements[e.type + 'Ignore'].checked) return;
+  for (let index = 0; index < keyboard.length; index++) {
+    if (keyboard[index].innerText.toUpperCase() === pressedLetter) {
+      foundElement = keyboard[index];
+      foundElement.classList.add("pressed-button");
+      returnBackground(foundElement, 500);
+    }
+  }
+}
 
-//   let text = e.type +
-//     ' key=' + e.key +
-//     ' code=' + e.code +
-//     (e.shiftKey ? ' shiftKey' : '') +
-//     (e.ctrlKey ? ' ctrlKey' : '') +
-//     (e.altKey ? ' altKey' : '') +
-//     (e.metaKey ? ' metaKey' : '') +
-//     (e.repeat ? ' (repeat)' : '') +
-//     "\n";
+function returnBackground(elem, interval) {
+  setTimeout(() => {
+    elem.classList.remove("pressed-button");
+  }, interval);
+}
 
-//   if (area.value && Date.now() - lastTime > 250) {
-//     area.value += new Array(81).join('-') + '\n';
-//   }
-//   lastTime = Date.now();
-
-//   area.value += text;
-
-//   if (form.elements[e.type + 'Stop'].checked) {
-//     e.preventDefault();
-//   }
-// }
-import styles from "./Index021.css";
-elementList = document.querySelectorAll('letter');
-console.log(elementList);
